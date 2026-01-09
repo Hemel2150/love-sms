@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shova ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Gift Box */
+.gift-container {
+  text-align: center;
+  cursor: pointer;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.gift-box {
+  width: 160px;
+  height: 120px;
+  background: #e91e63;
+  position: relative;
+  border-radius: 0 0 10px 10px;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 120px;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lid {
+  width: 180px;
+  height: 40px;
+  background: #c2185b;
+  position: absolute;
+  top: -40px;
+  left: -10px;
+  border-radius: 10px;
+}
+
+.lid::before {
+  content: "";
+  width: 20px;
+  height: 40px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gift-text {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Love Section */
+.love-section {
+  display: none;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 2s ease forwards;
+}
+
+.love-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 20px #ff4081;
+  animation: pulse 1.5s infinite;
+}
+
+.letter {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  font-size: 1.2rem;
+  line-height: 1.9;
+  text-align: left;
+  box-shadow: 0 0 40px rgba(255, 0, 100, 0.4);
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  animation: rise 6s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="gift-container" id="gift">
+  <div class="lid"></div>
+  <div class="gift-box"></div>
+  <div class="gift-text">Click to Open 🎁</div>
+</div>
+
+<div class="love-section" id="love">
+  <div class="love-title">I Love You Shova ❤️</div>
+
+  <div class="letter">
+    প্রিয় শোভা,<br><br>
+
+    জানো, কিছু মানুষ হঠাৎ করেই জীবনে আসে  
+    কিন্তু ধীরে ধীরে পুরো জীবনটাই বদলে দেয়।  
+    তুমি ঠিক তেমনই একজন।  
+    <br><br>
+
+    তোমার হাসি আমার সবচেয়ে প্রিয় জায়গা,  
+    তোমার নামটাই আমার মনে সবচেয়ে সুন্দর শব্দ।  
+    যখনই তোমার কথা ভাবি,  
+    পৃথিবীটা অদ্ভুতভাবে আরো সুন্দর হয়ে যায়।  
+    <br><br>
+
+    আমি জানি না ভবিষ্যৎ কেমন হবে,  
+    কিন্তু আমি এটুকু জানি—  
+    তোমার পাশে থাকলে যেকোনো ভবিষ্যৎই সুন্দর।  
+    <br><br>
+
+    সবসময় এমনই থেকো,  
+    আমার অনুভূতির সবচেয়ে সুন্দর অধ্যায় হয়ে।  
+    <br><br>
+
+    অনেক ভালোবাসা,<br>
+    💖
+  </div>
+</div>
+
+<script>
+const gift = document.getElementById("gift");
+const love = document.getElementById("love");
+
+gift.addEventListener("click", () => {
+  gift.style.display = "none";
+  love.style.display = "block";
+  createHearts();
+});
+
+function createHearts() {
+  for (let i = 0; i < 40; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
+}
+</script>
+
+</body>
+</html>
